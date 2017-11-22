@@ -1,4 +1,7 @@
 ## Young people survey
+
+![teenager_money](/results/img/tng_money.jpg)
+
 Looking at the data of young people with the focus on their spending habit.
 
 1. The dataset that I am using for this project is from a "young people survey" dataset of the [Kaggle website](https://www.kaggle.com).
