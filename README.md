@@ -1,6 +1,6 @@
 ## Young people survey
 
-![teenager_money](/results/img/tng_money.jpg)
+![teenager_money](/doc/img/tng_money.jpg)
 
 Looking at the data of young people with the focus on their spending habit.
 
