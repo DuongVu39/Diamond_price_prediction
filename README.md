@@ -1,8 +1,8 @@
-## Young people survey
+## Diamond Price Prediction
 
-![teenager_money](/doc/img/tng_money.jpg)
+![teenager_money](/doc/img/dia.jpg)
 
-Looking at the data of young people with the focus on their spending habit.
+Looking at the data of diamond with 10 features including price, I want to build a model to predict the diamond price base on its color and clarity only.
 
 1. The dataset that I am using for this project is from a "young people survey" dataset of the [Kaggle website](https://www.kaggle.com).
 
