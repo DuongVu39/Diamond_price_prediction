@@ -87,3 +87,5 @@ ENV/
 
 # Rope project settings
 .ropeproject
+
+tiny_cookie_cutter.sh
