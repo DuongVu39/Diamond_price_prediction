@@ -9,22 +9,53 @@ output: pdf_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## R Markdown
+## Library
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+Loading all the libraries:
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
-
-```{r cars}
-summary(cars)
+```{r lib, message=FALSE}
+library(tidyverse)
 ```
+
+## Loading data
+
+```{r}
+summary(diamonds)
+```
+
+```{r}
+head(diamonds)
+```
+
 
 ## Including Plots
 
-You can also embed plots, for example:
+Looking at the dataset
 
 ```{r pressure, echo=FALSE}
-plot(pressure)
+ggplot(diamonds, aes(color, price)) +
+  geom_jitter() +
+  geom_violin() +
+  labs(x = "Color type", y = "Price")
+
+ggplot(diamonds, aes(cut, price)) +
+  geom_jitter() +
+  geom_violin() +
+  labs(x = "Cut", y = "Price")
 ```
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+```{r}
+ggplot(diamonds, aes(carat, price)) +
+  geom_point(alpha = 0.5, color = "orange") +
+  geom_smooth(color = "blue") +
+  labs(x = "Carat")
+
+ggplot(diamonds, aes(carat^2, price)) +
+  geom_point(alpha = 0.5, color = "orange") +
+  geom_smooth(color = "red") +
+  labs(x = "Carat (carat^2)")
+
+```
+
+
+
