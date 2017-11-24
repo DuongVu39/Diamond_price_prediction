@@ -30,19 +30,21 @@ head(diamonds)
 
 ## Including Plots
 
-Looking at the dataset
+Looking at the dataset and the relationship between Price and color and cut.
 
 ```{r pressure, echo=FALSE}
 ggplot(diamonds, aes(color, price)) +
-  geom_jitter() +
-  geom_violin() +
+  geom_jitter(alpha = 0.5,color = "Orange") +
+  geom_violin(fill = "pink") +
   labs(x = "Color type", y = "Price")
 
 ggplot(diamonds, aes(cut, price)) +
-  geom_jitter() +
-  geom_violin() +
+  geom_jitter(alpha = 0.5,color = "Orange") +
+  geom_violin(fill = "pink") +
   labs(x = "Cut", y = "Price")
 ```
+
+How about the carat?
 
 ```{r}
 ggplot(diamonds, aes(carat, price)) +
