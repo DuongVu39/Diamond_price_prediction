@@ -1,0 +1,82 @@
+---
+title: "Data wrangling"
+author: "Duong Vu"
+date: "November 23, 2017"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Library
+
+Loading all the libraries:
+
+```{r lib, message=FALSE}
+library(tidyverse)
+```
+
+## Loading data
+
+```{r}
+diamonds_tiny <- diamonds %>% 
+  select(carat, cut, color, clarity, price) %>% 
+  mutate(color = as.factor(as.character(color)),
+         cut = as.factor(as.character(cut)),
+         clarity = as.factor(as.character(clarity)))
+```
+
+```{r}
+head(diamonds_tiny)
+```
+
+```{r}
+levels(diamonds_tiny$color)
+```
+
+## Including Plots
+
+Looking at the dataset and the relationship between Price and color and cut.
+
+```{r pressure, echo=FALSE}
+ggplot(diamonds, aes(color, price)) +
+  geom_jitter(alpha = 0.5,color = "Orange") +
+  geom_violin(fill = "pink") +
+  labs(x = "Color type", y = "Price")
+
+ggplot(diamonds, aes(cut, price)) +
+  geom_jitter(alpha = 0.5,color = "Orange") +
+  geom_violin(fill = "pink") +
+  labs(x = "Cut", y = "Price")
+
+ggplot(diamonds, aes(clarity, price)) +
+  geom_jitter(alpha = 0.5,color = "Orange") +
+  geom_violin(fill = "pink") +
+  labs(x = "Clarity", y = "Price")
+```
+
+How about the carat?
+
+```{r}
+ggplot(diamonds, aes(carat, price)) +
+  geom_point(alpha = 0.5, color = "orange") +
+  geom_smooth(color = "blue") +
+  labs(x = "Carat")
+
+ggplot(diamonds, aes(carat^2, price)) +
+  geom_point(alpha = 0.5, color = "orange", alpha = 0.5) +
+  geom_smooth(color = "red") +
+  labs(x = "Carat (carat^2)") +
+  coord_cartesian(xlim = c(0,10))
+
+typeof(diamonds_tiny$clarity)
+```
+
+```{r}
+summary(lm(price~carat*color, data = diamonds_tiny))
+
+broom::tidy(lm(price~carat*color, data = diamonds_tiny))
+```
+
+
