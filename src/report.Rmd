@@ -1,77 +1,66 @@
 ---
-title: "Data wrangling"
+title: "Diamond price report"
 author: "Duong Vu"
 date: "November 23, 2017"
 output: pdf_document
 ---
 
+> This is the forth script: report.Rmd        
+Duong Vu, Dec 2017        
+The purpose of this script is to create a report    
+This script reads the clean-up data exported by the read_data.R, includes some visulizations of the relationship between variables and shows the result table of the model.R script.          
+The final report will be saved into a .md file in `results` folder. 
+
+> Usage:             
+ Rscript report.Rmd 
+
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
-
-## Library
-
-Loading all the libraries:
 
 ```{r lib, message=FALSE}
 library(tidyverse)
 ```
 
-## Loading data
+```{r}
+args <- commandArgs(trailingOnly = TRUE)
+input <- args[1]
+```
+
+# The diamond project
+
+This project is looking into the relationship between color and carat of a diamond to see how the combination of those two characters can affect the price of a diamond.
+
+The dataset is from ggplot2 package and it has information of 53,940 diamonds. After cleaning the dataset to get only the information needed, I have five variables for each diamond:
+- Cut: the quality of the cut (Fair, Good, Very Good, Premium, Ideal)
+![Cut](../doc/img/Cut.jpg)
+
+- Carat: is a measure of a diamond weight ( 1 carat = 0.2 grams)
+
+- Colour: there are six levels of colourm from J (worst) to D (best)
+![Color](../doc/img/color-chart.jpg)
+
+- Clarity: a measure of how clear the diamond is: I1 (worst), SI1, SI2, VS1, VS2, VVS1, VVS2, IF (best).
+![Clarity](../doc/img/Clarity.jpg)
+
+- Price: in USD
+
+
+## Reading the data
+
+Take a look at first 10 lines of the raw data containing information about carat, cut, color, clarity and correspondent price of each diamond.
 
 ```{r}
-diamonds_tiny <- diamonds %>% 
-  select(carat, cut, color, clarity, price) %>% 
-  mutate(color = as.factor(as.character(color)),
-         cut = as.factor(as.character(cut)),
-         clarity = as.factor(as.character(clarity)))
+diamonds_tiny <- read.csv("../data/diamonds_tiny.csv")
+
+head(diamonds_tiny, 10)
 ```
 
-```{r}
-head(diamonds_tiny)
-```
+## Overview of the data:
 
-```{r}
-levels(diamonds_tiny$color)
-```
+First, I consider the relationship between diamond price with eachc of its feature: color, cut, clarity and carat.
 
-## Including Plots
-
-Looking at the dataset and the relationship between Price and color and cut.
-
-```{r pressure, echo=FALSE}
-ggplot(diamonds, aes(color, price)) +
-  geom_jitter(alpha = 0.5,color = "Orange") +
-  geom_violin(fill = "pink") +
-  labs(x = "Color type", y = "Price")
-
-ggplot(diamonds, aes(cut, price)) +
-  geom_jitter(alpha = 0.5,color = "Orange") +
-  geom_violin(fill = "pink") +
-  labs(x = "Cut", y = "Price")
-
-ggplot(diamonds, aes(clarity, price)) +
-  geom_jitter(alpha = 0.5,color = "Orange") +
-  geom_violin(fill = "pink") +
-  labs(x = "Clarity", y = "Price")
-```
-
-How about the carat?
-
-```{r}
-ggplot(diamonds, aes(carat, price)) +
-  geom_point(alpha = 0.5, color = "orange") +
-  geom_smooth(color = "blue") +
-  labs(x = "Carat")
-
-ggplot(diamonds, aes(carat^2, price)) +
-  geom_point(alpha = 0.5, color = "orange", alpha = 0.5) +
-  geom_smooth(color = "red") +
-  labs(x = "Carat (carat^2)") +
-  coord_cartesian(xlim = c(0,10))
-
-typeof(diamonds_tiny$clarity)
-```
+![]()
 
 ```{r}
 summary(lm(price~carat*color, data = diamonds_tiny))
@@ -79,4 +68,8 @@ summary(lm(price~carat*color, data = diamonds_tiny))
 broom::tidy(lm(price~carat*color, data = diamonds_tiny))
 ```
 
+The mean price of a 1 carat, colour D diamond is \$8408 more than a 0 carat D color. --> The mean price of a 1 carat colour D diamond is \$6000.
 
+for all other colour (E,F,G...): the mean price difference between colour D and other colour of a 0 carat diamond ( = the estimated beta associated with the colour)
+
+carat:colorE  -112.14 : The effect of carat on colour E is \$112.14 less than the effect of carat on colour D.

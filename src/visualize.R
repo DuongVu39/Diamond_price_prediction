@@ -21,8 +21,6 @@ corr <- args[6]
 
 # Step 2: load the library that contains the data
 library(tidyverse)
-library(ggplot2)
-
 
 # Step 3: read the new data from "../data/diamonds_tiny.csv"
 diamonds_tiny <- read.csv(input, header = TRUE)
@@ -64,7 +62,7 @@ p5 <- GGally::ggpairs(diamonds_tiny)
 ggsave(color_price, plot = p1)
 
 # "../results/figure/cut_price.png"
-ggsave(color_price, plot = p2)
+ggsave(cut_price, plot = p2)
 
 # "../results/figure/clarity_price.png"
 ggsave(clarity_price, plot = p3)

@@ -16,6 +16,42 @@ Looking at the data of diamond with 10 features, I want to build a model to pred
 
 
 
+## How to run the project:
+
+
+
+## Repository Hierarchy:
+
+```
+ .
+     |-- CITATION
+     |-- README 
+     |-- LICENSE
+     |-- .gitignore.py          # specifies files that Git should ignore (i.e. backup files)
+     |-- data
+     |   -- diamonds.csv  		# raw dataset
+     |   -- diamonds_tiny 		# produced by read_data.R
+     |-- doc 
+     |   -- notebook.md   
+     |   -- manuscript.md       
+     |-- results				# where you store all result files
+     |   -- README.md 
+     |   -- report.md
+     |   -- figure				# folder storing all the exported visualizations
+     |   	-- color_price.png
+     |   	-- cut_price.png
+     |   	-- clarity_price.png
+     |   	-- carat_price.png
+     |   	-- corr.png
+     |-- src 					# source code
+     |   -- read_data.R
+     |   -- visualize.R
+     |   -- build_model.R
+     |   -- report.R
+     |-- bin
+     |   -- # keep all the files you want to delete but not sure whether you will need it later
+```
+
 
 
 ## Project dependencies:
