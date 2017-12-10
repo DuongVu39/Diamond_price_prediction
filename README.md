@@ -1,4 +1,4 @@
-## Diamond Price Prediction
+## Diamond Price Project
 
 by Duong Vu, Nov 23, 2017
 
