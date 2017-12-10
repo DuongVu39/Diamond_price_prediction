@@ -1,10 +1,18 @@
 ## Diamond Price Prediction
 
-by Duong Vu, Dec 5, 2017
+by Duong Vu, Nov 23, 2017
+
+Last update: Dec 10, 2017.
 
 ![teenager_money](/doc/img/dia.jpg)
 
 ## Preface
+
+Diamond is one of the world most famous and expensive crystal. Everyone knows that diamonds are charcoal formed deep within the Earth for several billions of year. However, raw diamonds through many treatment processes become jewelry. Those treatments add more value to the diamond and increase its price. In this project, I consider four characters of a diamonds that affect its price and focus on the relationship between carat and color on diamond price.
+
+
+
+## Project Overview:
 
 Looking at the data of diamond with 10 features, I want to build a model to predict the diamond price base on its features.
 
@@ -15,6 +23,26 @@ Looking at the data of diamond with 10 features, I want to build a model to pred
 
 
 
+### Introduction to some variables[^1]:
+
+- **Cut**: "A diamond’s cut refers both to the physical shape of the stone, and to the quality of its finish. A diamond’s brilliance depends on its ability to bend and direct light as it passes through the stone and back to its surface, and the cut of a diamond determines how well the stone is able to do this. " In this dataset, we only consider 5 levels of the cut quality : Fair, Good, Very Good, Premium, Ideal.
+
+  ![Cut](doc/img/Cut.jpg)
+
+  ​
+
+- **Colour**: "The colour of a diamond is actually a reference to its lack of colour, or whiteness.  Diamond colour is graded according to the GIA colour scale, from D to Z, with D being the whitest and most valuable shade." In this dataset, we have six levels of colourm from J (worst) to D (best)
+
+  ![Color](doc/img/color-chart.jpg)
+
+  ​
+
+- **Clarity**: Based on the level of impurities, experts classify how clear the diamond is from I1 (worst), SI1, SI2, VS1, VS2, VVS1, VVS2 to IF (best).
+  ![Clarity](doc/img/Clarity.jpg)
+
+  ​
+
+- **Carat**: Is a measure to the weight, not size of a diamond. 1 carat is equal to 2 gram.
 
 ## How to run the project:
 
@@ -59,5 +87,11 @@ Looking at the data of diamond with 10 features, I want to build a model to pred
 - R
 - RStudio
 - R packages:
-- `packrat` (or `png`, `grid` and `gridExtra`)
-- ​
+  - `tidyverse`
+
+  ​
+
+## Reference:
+
+[^1]: [Diamonds features](http://www.brideswithoutborders.com/articles/diamond-education-understanding-the-4-c%E2%80%99s-and-choosing-the-perfect-stone)
+

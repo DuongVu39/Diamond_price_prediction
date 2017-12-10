@@ -21,7 +21,8 @@ summary(diamonds)
 head(diamonds)
 
 ## Step 4: Cleaning the data: 
-# Take only the variables that I needs to build the model and change the type of categorical variable into factor
+# Take only the variables that I needs to build the model 
+# and change the type of categorical variable into factor
 diamonds_tiny <- diamonds %>% 
   select(carat, cut, color, clarity, price) %>% 
   mutate(color = as.factor(as.character(color)),
