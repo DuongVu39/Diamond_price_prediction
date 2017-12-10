@@ -9,7 +9,7 @@ output: pdf_document
 Duong Vu, Dec 2017        
 The purpose of this script is to create a report    
 This script reads the clean-up data exported by the read_data.R, includes some visulizations of the relationship between variables and shows the result table of the model.R script.          
-The final report will be saved into a .md file in `results` folder. 
+The final report will be saved into a .pdf file in `results` folder. 
 
 > Usage:             
  Rscript report.Rmd 
@@ -57,11 +57,6 @@ head(diamonds_tiny, 10)
 
 First, I consider the relationship between diamond price with each of its feature: color, cut, clarity and carat.
 
-```{r}
-p5 <- GGally::ggpairs(diamonds_tiny)
-p5
-```
-
 ### The correlation between pair-wise variables of the dataset:
 
 ![Overall](../results/figure/corr.png)
@@ -99,3 +94,5 @@ For all other colour (E, F, G, H, I, J): the mean price difference between colou
 **The main focus** here is the relationship between carat and color. It seems like the p-value of each testing for carat and each color are very small and so we are statistical confidence to **reject the Null hypothesis** that there is no linear correlation between carat and color with regards to diamond price. 
 
 We can see this line `carat:colorE  -112.14`. This means that the effect of carat on colour E is \$112.14 less than the effect of carat on colour D. Similarly, we have all the estimated effect of carat on difference diamond colours.
+
+

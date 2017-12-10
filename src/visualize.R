@@ -3,7 +3,7 @@
 # Duong Vu, Dec 2017
 #
 # This script reads the clean-up data exported by the read_data.R
-# Then it plots some initial visulization of the relationship between variables
+# Then it plots some initial visualization of the relationship between variables
 # All the plots will be saved into .png file in src/figure folder. 
 #
 # Usage: 

@@ -8,7 +8,7 @@ Last update: Dec 10, 2017.
 
 ## Preface
 
-Diamond is one of the world most famous and expensive crystal. Everyone knows that diamonds are charcoal formed deep within the Earth for several billions of year. However, raw diamonds through many treatment processes become jewelry. Those treatments add more value to the diamond and increase its price. In this project, I consider four characters of a diamonds that affect its price and focus on the relationship between carat and color on diamond price.
+Diamond is one of the world most famous and expensive crystal. Everyone knows that diamonds are charcoal formed deep within the Earth for several billions of year. However, raw diamonds through many treatment processes become precious jewelry. Those treatments add more value to the diamond and increase its price. In this project, I consider four characters of a diamonds that affect its price and focus on the relationship between carat and color on diamond price.
 
 
 
@@ -38,6 +38,9 @@ Looking at the data of diamond with 10 features, I want to build a model to pred
   ​
 
 - **Clarity**: Based on the level of impurities, experts classify how clear the diamond is from I1 (worst), SI1, SI2, VS1, VS2, VVS1, VVS2 to IF (best).
+
+  ​
+
   ![Clarity](doc/img/Clarity.jpg)
 
   ​
@@ -46,7 +49,53 @@ Looking at the data of diamond with 10 features, I want to build a model to pred
 
 ## How to run the project:
 
+1. Simply clone this repository
 
+2. Run the code:
+
+   a. The quick way is to open a bash shell in the repository and type:
+
+```
+bash run_all.sh
+```
+
+> This will run all the code and return a report.
+
+​	b. The other way is to run each script in the `src`folder. First, open the bash shell in  the `src`folder and type:
+
+```
+Rscript read_data.R ../data/diamonds_tiny.csv
+```
+
+>  This first script load the library `tidyverse` where it contains the data and clean up the file by selecting only needed variables. Then it saves the new dataframe into a .csv file in `data` folder.
+
+Then type:
+
+```
+Rscript visualize.R ../data/diamonds_tiny.csv ../results/figure/color_price.png ../results/figure/cut_price.png ../results/figure/clarity_price.png ../results/figure/carat_price.png ../results/figure/corr.png
+```
+
+> This script reads the clean-up data exported by the read_data.R above, then it plots some initial visualization of the relationship between variables. All the plots will be saved into .png file in `src/figure `folder. 
+
+Next, to build a linear regression model between carat and color with regards to diamond price, type:
+
+```
+Rscript build_model.R ../data/model.csv
+```
+
+> This script reads the clean-up data exported by the read_data.R above, and fits the data into a linear model. The 2 variables used for the hypothesis are: carat and color. Then it saves the result into a .csv file of `data` folder.
+
+Lastly, export a report:
+
+```
+Rscript -e "ezknitr::ezknit('src/report.Rmd', out_dir = 'results')"
+```
+
+
+
+3. Check the report file in the result folder.
+
+   ​
 
 ## Repository Hierarchy:
 
@@ -64,7 +113,7 @@ Looking at the data of diamond with 10 features, I want to build a model to pred
      |   -- manuscript.md       
      |-- results				# where you store all result files
      |   -- README.md 
-     |   -- report.md
+     |   -- report.pdf
      |   -- figure				# folder storing all the exported visualizations
      |   	-- color_price.png
      |   	-- cut_price.png
@@ -88,10 +137,10 @@ Looking at the data of diamond with 10 features, I want to build a model to pred
 - RStudio
 - R packages:
   - `tidyverse`
+  - `ezknitr`
 
   ​
 
 ## Reference:
 
 [^1]: [Diamonds features](http://www.brideswithoutborders.com/articles/diamond-education-understanding-the-4-c%E2%80%99s-and-choosing-the-perfect-stone)
-
