@@ -16,11 +16,10 @@ Diamond is one of the world most famous and expensive crystal. Everyone knows th
 
 Looking at the data of diamond with 10 features, I want to build a model to predict the diamond price base on its features.
 
-1. The dataset that I am using for this project is a dataset of almost 54,000 diamonds, a provided dataset from `ggplot2`.
-2. With this dataset, I'm particularly interested in the how the price of diamond is determined based on the factor `carat` and `clarity`and if possible, the combination of four variable: carat, cut quality, color and clarity.
-3. My main question is that: " Is there any relationship between carat and color in the diamond price?" so the hypothesis will be focus on: "There is no linear correlation between carat and color of diamond."
-4. For this question, I will only use the information from 5 columns: price, carat, cut quality, color and clarity. The rest of the information can be dropped out of the data. Before doing any analysis, some visualization to show the price by carat, cut quality, color and clarity will be nice to look at. Then I will fit the data into a linear model to see the relationship between carat and colour with the response variable (price). 
-
+1. The dataset that I am using for this project is a dataset of almost 54,000 diamonds, a provided dataset from ggplot2.
+2. With this dataset, I'm particularly interested in the how the price of a diamond is determined based on the factor carat and clarity and if possible, the combination of four variable: carat, cut quality, color, and clarity.
+3. My main question is that: " Is there any relationship between carat and color in the diamond price?" so the hypothesis will be focused on: "There is no linear correlation between carat and color of a diamond."
+4. For this question, I will only use the information from 5 columns: price, carat, cut quality, color, and clarity. The rest of the information can be dropped out of the data. Before doing any analysis, some visualization to show the price by carat, cut quality, color, and clarity will be nice to look at. Then I will fit the data into a linear model to see the relationship between carat and color with the response variable (price).
 
 
 ### Introduction to some variables[^1]:
@@ -31,7 +30,9 @@ Looking at the data of diamond with 10 features, I want to build a model to pred
 
   ​
 
-- **Colour**: "The colour of a diamond is actually a reference to its lack of colour, or whiteness.  Diamond colour is graded according to the GIA colour scale, from D to Z, with D being the whitest and most valuable shade." In this dataset, we have six levels of colourm from J (worst) to D (best)
+- **Colour**: "The colour of a diamond is actually a reference to its lack of colour, or whiteness.  Diamond colour is graded according to the GIA colour scale, from D to Z, with D being the whitest and most valuable shade." In this dataset, we have six levels of colourm from J (worst) to D (best). 
+
+  - Trick: tilt your head to form a 45 degree angle with the screen to see the differences among these colours below.
 
   ![Color](doc/img/color-chart.jpg)
 
@@ -45,7 +46,7 @@ Looking at the data of diamond with 10 features, I want to build a model to pred
 
   ​
 
-- **Carat**: Is a measure to the weight, not size of a diamond. 1 carat is equal to 2 gram.
+- **Carat**: Is a measure of the diamond weight, not size of a diamond. 1 carat is equal to 2 gram.
 
 ## How to run the project:
 
@@ -65,7 +66,7 @@ bash run_all.sh
 
 ![Flowchart](doc/img/flowchart.png)
 
-Check out the README_src.md in the `src` folder for more detail.
+Check out the [README file](src/README_src.md) in the `src` folder for more detail.
 
 
 
