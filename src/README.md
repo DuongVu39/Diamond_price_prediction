@@ -37,7 +37,7 @@ There are 4 scripts in this folder:
    Usage: Open a bash shell and type
 
    ```
-   Rscript build_model.R ../data/model.csv
+   Rscript build_model.R ../data/diamonds_tiny.csv ../data/model.csv
    ```
 
    This script reads the clean-up data exported by the read_data.R above, and fits the data into a linear model. The 2 variables used for the hypothesis are: carat and color. Then it saves the result into a .csv file of `data` folder.

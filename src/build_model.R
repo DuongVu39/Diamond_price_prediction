@@ -7,16 +7,17 @@
 # The 2 variables used for the hypothesis are: carat and color
 # Then it saves the result into a .csv file. 
 #
-# Usage: Rscript build_model.R ../data/model.csv
+# Usage: Rscript build_model.R ../data/diamonds_tiny.csv ../data/model.csv
 
 
 # Step 1: read in command line arguments
 args <- commandArgs(trailingOnly = TRUE)
-output <- args[1]
+input <- args[1]
+output <- args[2]
 
-# Step 2: load the library that contains the data
+# Step 2: load the library that contains the data and import the new dataset
 library(tidyverse)
-
+diamonds_tiny <- read.csv(input)
 
 # Build the model
 

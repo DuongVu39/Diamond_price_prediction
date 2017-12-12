@@ -12,7 +12,7 @@ Rscript read_data.R ../data/diamonds_tiny.csv
 Rscript visualize.R ../data/diamonds_tiny.csv ../results/figure/color_price.png ../results/figure/cut_price.png ../results/figure/clarity_price.png ../results/figure/carat_price.png ../results/figure/corr.png
 
 # Build a linear regression model between carat and color with regards to diamond price:
-Rscript build_model.R ../data/model.csv
+Rscript build_model.R ../data/diamonds_tiny.csv ../data/model.csv
 
 # Export the report as a pdf file
 Rscript -e "ezknitr::ezknit('src/report.Rmd', out_dir = 'results')"

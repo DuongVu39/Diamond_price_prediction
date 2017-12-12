@@ -66,7 +66,7 @@ bash run_all.sh
 
 ![Flowchart](doc/img/flowchart.png)
 
-Check out the [README file](src/README_src.md) in the `src` folder for more detail.
+Check out the [README file](src/README.md) in the `src` folder for more detail.
 
 
 
