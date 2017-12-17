@@ -2,7 +2,7 @@
 
 by Duong Vu, Nov 23, 2017
 
-Last update: Dec 10, 2017.
+Last update: Dec 17, 2017.
 
 ![teenager_money](/doc/img/dia.jpg)
 
@@ -104,6 +104,8 @@ Check out the [README file](src/README.md) in the `src` folder for more detail.
      |   -- report.R
      |-- bin
      |   -- # keep all the files you want to delete but not sure whether you will need it later
+     |-- Makefile         # Driver script
+     |-- run_all          # Run all script
 ```
 
 
