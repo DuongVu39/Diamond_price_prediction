@@ -20,6 +20,8 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ```{r lib, message=FALSE}
 library(tidyverse)
+library(GGally)
+library(mgcv)
 ```
 
 
