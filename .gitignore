@@ -72,3 +72,4 @@ ENV/
 .ropeproject
 tiny_cookie_cutter.sh
 packrat/lib*/
+.Rproj.user
