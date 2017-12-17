@@ -6,8 +6,11 @@
 # use rocker/tidyverse as the base image and
 FROM rocker/tidyverse
 
+# Install devtools
+RUN Rscript -e "install.packages('devtools', repos = 'https://cloud.r-project.org')"
+
 # Install packrat
-RUN Rscript -e "install.packages('packrat' , repos='http://cran.us.r-project.org'); packrat::restore()"
+RUN Rscript -e "devtools::install_github('rstudio/packrat')"
 
 # then install the GGally packages
 RUN Rscript -e "install.packages('GGally', repos = 'https://cloud.r-project.org')"
